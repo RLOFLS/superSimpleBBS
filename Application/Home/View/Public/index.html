@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/header.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_index.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/footer.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="float_aside"><input type="button" class="btn btn-default back" value="返回上一页" onClick="JavaScript:history.go(-1)"></div>
+<include file="./Application/Home/View/Public/header.html" />
+<div class="main">
+	<div class="_center">
+	<div class="left">
+		<volist name="moudle" id="moudle">
+			<a href="__CONTROLLER__/showMpost/id/{$moudle.moudle_id}"><div class="moudle">
+			{$moudle.title}
+			</div></a>
+		</volist>
+	</div>
+	<div class="right">
+	<ul class="nav nav-pills">
+  		<li role="presentation" class="label label-primary"><a href="__CONTROLLER__/showMpost/id/all">全部</a></li>
+  		<li role="presentation" class="label label-success"><a href="__CONTROLLER__/showMpost/id/good">精帖</a></li>
+  		<li role="presentation" class="label label-warning"><a href="__CONTROLLER__/showMpost/id/hot">热帖</a></li>
+	</ul>
+	<div class="right_main">
+		<table>	
+			<tr class="intro">
+				<td width="100px">类型</td><td width="200px" class="title">标题</td><td width="200px">作者</td><td width="50px">浏览量</td><td width="50px">评论数</td><td width="170px">发帖时间</td>
+			</tr>
+			<volist name="postInfo" id="vol">
+				<tr class="intro">
+				<td width="100px">
+			<if condition="($vol.is_good eq 1 ) AND ($vol.is_hot eq 1 )">
+				<span class="label label-success">精</span>&nbsp;<span class="label label-warning">热</span>
+			<elseif condition="$vol.is_good eq 1"/>
+				<span class="label label-success">精</span>
+			<elseif condition="$vol.is_hot eq 1" />
+				<span class="label label-warning">热</span>
+			<else/>
+				<span class="label label-warning"></span>
+			</if>
+				</td>
+				<td width="200px"  class="title"><a href="__APP__/Home/Public/showPost/id/{$vol.post_id}/author/{$vol.author}">{$vol.title|substr=0,36}...</a></td>
+				<span class="info"><i><td width="200px">{$vol.author|substr=0,21}</td><td width="50px">{$vol.scan}</td><td width="50px">{$vol.comments}</td><td width="170px">{$vol.time|date="Y-m-d H:i:s",###}</td></i></span>
+			</tr>
+			</volist>	
+		</table>
+	</div>
+	</div>
+	</div>
+</div>
+<include file="./Application/Home/View/Public/footer.html" />
+<script>
+	function onC(obj){
+		$("div[class*='active_live']").removeClass('active_live');
+		obj.className='xx active_live';
+		
+	}
+</script>
+</body>
+</html>

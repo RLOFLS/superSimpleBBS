@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/header.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_user_info.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/footer.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_user_info.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="float_aside"><input type="button" class="btn btn-default" value="返回上一页" onClick="JavaScript:history.go(-1)"></div>
+<include file="./Application/Home/View/Public/header.html" />
+<div class="main">
+	<div class="main_center">
+	<div class="user_info">
+		<dl>
+			<dt><div class="image"><img src="/Public/Uploads/{$data.header_img}"></div></dt>
+			<dd>昵称：{$data.user_name}&nbsp;&nbsp;&nbsp;发帖总数：{$data.post_nums}&nbsp;&nbsp;&nbsp;积分：{$data.grade}</dd>
+			<p class="signature">{$data.introduce}</p>
+		</dl>
+		<h4>{$data.user_name}发的帖子：</h4>
+		</div>
+		<div class="user_post">
+			<table>
+			<volist name="post" id="vol">
+				<tr class="intro">
+				<td width="270px"><a href="__CONTROLLER__/showPost/id/{$vol.post_id}/author/{$vol.author}">{$vol.title|substr=0,27}...</a></td><td width="170px"><i>{$vol.time|date="Y-m-d H:i:s",###}</i></td>
+				</tr>
+			</volist>
+			</table>
+		</div>
+		
+	</div>
+</div>
+<div class="footer">
+	Copyright &copy; 2018 程序员之家 版权所有
+</div>
+</body>
+</html>

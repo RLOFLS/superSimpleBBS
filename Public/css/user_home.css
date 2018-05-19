@@ -1,0 +1,14 @@
+@charset "utf-8";
+.top{
+	margin-top: 27px;
+	text-align:center;
+	font-size: 16px;
+}
+.floor{
+	margin-top:17px;
+	height: 27px;
+	line-height: 27px;
+	text-align: center;
+	font-size:18px;
+	color: #555555;
+}

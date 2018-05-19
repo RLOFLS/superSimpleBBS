@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_back.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="content">
+	<table>	
+		<tr class="intro">
+			<td width="70px">类型</td><td width="170px" class="title">帖子标题</td><td width="70px">作者</td><td width="70px">浏览</td><td width="70px">评论</td><td width="170px">时间</td><td width="150px" colspan="3">操作</td>
+		</tr>
+		<volist name="data" id="vol">
+			<tr class="intro">
+			<td width="70px">
+			<if condition="($vol.is_good eq 1 ) AND ($vol.is_hot eq 1 )">
+				<span class="label label-success">精</span>&nbsp;<span class="label label-warning">热</span>
+			<elseif condition="$vol.is_good eq 1"/>
+				<span class="label label-success">精</span>
+			<elseif condition="$vol.is_hot eq 1" />
+				<span class="label label-warning">热</span>
+			<else/>
+				<span class="label label-warning"></span>
+			</if></td><td width="170px" class="title"><a href="post.html">{$vol.title|substr=0,18}...</a></td><span class="info"><td width="70px"><i>{$vol.author}</i></td><td width="70px"><i>{$vol.scan}</i></td><td width="70px"><i>{$vol.comments}</i></td><td width="170px"><i>{$vol.time|date="Y-m-d H:i:s",###}</i></td></span><td width="50px"><button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal{$vol.post_id}">查看</button></td><td><a href="__CONTROLLER__/recover/id/{$vol.post_id}"><button class="btn btn-primary btn-xs" >恢复</button></a></td><td width="50px"><a href="__CONTROLLER__/del/id/{$vol.post_id}/ud/1"><button class="btn btn-danger btn-xs" onClick="return confirm('确认删除么');">删除</button></a></td>
+			
+<div class="modal fade" id="myModal{$vol.post_id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{$vol.title}</h4>
+        <span class="info">作者：{$vol.author}&nbsp;&nbsp;&nbsp;&nbsp;时间：{$vol.time|date="Y-m-d H:i:s",###}</span>
+      </div>
+      <div class="modal-body">
+        {$vol.content|htmlspecialchars_decode}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+		</tr>
+		</volist>
+	
+		
+	</table>
+</div>
+</body>
+</html>

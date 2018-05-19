@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_back.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="content">
+	<table>	
+		<tr class="intro">
+			<td width="170px" class="title">帖子标题</td><td  width="170px" >评论内容</td><td width="100px">评论人</td><td width="170px"><span class="info">时间&nbsp;</span></td><td width="100px" colspan="2">操作</td>
+		</tr>
+		<volist name="data" id="vol">
+		<tr class="intro">
+			<td width="170px" class="title"><a href="post.html">{$vol.title|substr=0,12}...</a></td><td  width="170px" >{$vol.content|substr=0,21}...</td><td width="100px">{$vol.cmt_user}</td><td width="170px"><span class="info"><i>{$vol.time|date="Y-m-d H:i:s",###}&nbsp;</i></span></td><td width="50px"><button class="btn btn-success btn-xs"  data-toggle="modal" data-target="#myModal{$vol.cmt_id}">查看</button></td><td width="50px"><a href="__CONTROLLER__/del/id/{$vol.cmt_id}"><button class="btn btn-danger btn-xs" onClick="return confirm('确认删除么,删了不可恢复哦');">删除</button></a></td>
+			
+		<div class="modal fade" id="myModal{$vol.cmt_id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">评论帖子：{$vol.title}</h4>
+        <span class="info">评论人：{$vol.cmt_user}&nbsp;&nbsp;&nbsp;&nbsp;时间：{$vol.time|date="Y-m-d H:i:s",###}</span>
+      </div>
+      <div class="modal-body">
+        {$vol.content}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+		</tr>
+		</volist>
+	
+		
+	</table>
+</div>
+</body>
+</html>

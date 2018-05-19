@@ -1,0 +1,27 @@
+@charset "utf-8";
+.header {
+	height: 57px;
+	width:900px;
+	margin:0 auto;
+	overflow: hidden;
+	
+}
+.header .header_left {
+	font-size: 27px;
+	margin-left: 17px;
+	margin: 10px;
+	float: left;
+}
+.header .header_right{
+	float: right;
+	font-size: 15px;
+	margin-right: 17px;
+	margin-top: 15px;
+}
+.header a{
+	color:#666666;
+}
+.header a:hover{
+	color: #333333;
+	text-decoration: none;
+}

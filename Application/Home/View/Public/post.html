@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/header.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_post.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/footer.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="float_aside"><input type="button" class="btn btn-default" value="返回上一页" onClick="JavaScript:history.go(-1)"></div>
+<include file="./Application/Home/View/Public/header.html" />
+<div class="main">
+	<div class="main_center">
+		<div class="content">
+			<div class="simple_info">
+				<dl>
+					<a href="__CONTROLLER__/showInfo/id/{$authorInfo.user_id}"><dt><div class="image"><img src="/Public/Uploads/{$authorInfo.header_img}"></div></dt>
+					<dd><if condition="$authorInfo.user_name neq null">
+						昵称：{$authorInfo.user_name}
+					<else/>
+					    昵称：{$authorInfo.admin_name}
+					</if>
+					<br>发帖总数：{$authorInfo.post_nums}<br>积分：{$authorInfo.grade}</dd>
+					</a>
+				</dl>
+			</div>
+			<div class="article_info">
+				<h1>{$postInfo.title}</h1>
+				<p class="p_small">时间：{$postInfo.time|date="Y-m-d H:i:s",###}&nbsp;&nbsp;浏览：{$postInfo.scan}&nbsp;&nbsp; 评论：{$postInfo.comments}</p>
+				<p>
+					{$postInfo.content|htmlspecialchars_decode}
+				</p>
+			</div>
+		</div>
+		<div class="comment">
+			<form action="__CONTROLLER__/comment/id/{$postInfo.post_id}" method="post">
+				<textarea autofocus name="content">来评论一下</textarea>
+				<div class="text_btn">
+					<input type="submit" name="submit" class="btn btn-success" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="reset" class="btn btn-danger" value="重置">
+				</div>
+			</form>
+		</div>
+		<div class="comments">
+		<volist name="cmtInfo" id="vol">
+			<div class="part"><div class="comments_left">
+				
+					<a href="__CONTROLLER__/showInfo/id/{$vol.user_id}">
+					<div class="image_small">
+					<if condition="$vol.header_img eq null">
+						<img src="/Public/Uploads/default/1.JPG">
+					<else/>
+						<img src="/Public/Uploads/{$vol.header_img}">
+					</if>
+					</div>
+					<span>昵称：{$vol.cmt_user}<br>发帖总数：{$vol.post_nums}<br>积分：{$vol.grade}</span></a>
+			
+			</div>
+			<div class="comments_right">
+			<p>{$vol.content}</p>
+			<span>时间：{$vol.time|date="Y-m-d H:i:s",###}</span>
+			</div>
+			</div>
+		</volist>
+		</div>
+		
+	</div>
+</div>
+<include file="./Application/Home/View/Public/footer.html" />
+</body>
+</html>

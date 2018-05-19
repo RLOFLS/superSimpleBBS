@@ -1,0 +1,1 @@
+a:7:{i:0;s:9:"notice_id";i:1;s:5:"title";i:2;s:7:"content";i:3;s:4:"time";i:4;s:4:"sort";s:3:"_pk";s:9:"notice_id";s:5:"_type";a:5:{s:9:"notice_id";s:16:"int(10) unsigned";s:5:"title";s:8:"char(20)";s:7:"content";s:12:"varchar(255)";s:4:"time";s:16:"int(10) unsigned";s:4:"sort";s:19:"tinyint(2) unsigned";}}

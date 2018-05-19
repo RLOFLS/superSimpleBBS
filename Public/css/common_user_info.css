@@ -1,0 +1,40 @@
+@charset "utf-8";
+.main_center{
+	width: 900px;
+	margin:17px auto;
+	overflow: auto;
+	text-align: center;
+}
+dd{
+	text-align:center;
+	color: #777777;
+}
+.signature{
+	margin:7px 17px;
+	text-align:center;
+	color: #555555;
+}
+.user_post{
+	height: 270px;
+	text-align: center;
+	overflow-y:scroll;
+}
+table{
+	margin:7px auto;
+}
+.intro{
+	display: block;
+	background-color:#eeeeee;
+	margin-top: 7px;
+	height: 37px;
+	line-height: 37px;
+	padding: 5px 17px;
+}
+.intro:hover{
+	background-color:#cccccc;
+	border:solid 1px #006600;
+	box-shadow: 0px 0px 3px #669966;
+}
+.intro a{
+	margin-right: 50px;
+}

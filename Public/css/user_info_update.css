@@ -1,0 +1,14 @@
+@charset "utf-8";
+.content{
+	
+}
+.input-group{
+	width: 270px;
+	margin: 7px 0 0 17px;
+}
+.handle{
+	margin:7px 0 0 17px;
+}
+.handle input{
+	margin-right:17px;
+}

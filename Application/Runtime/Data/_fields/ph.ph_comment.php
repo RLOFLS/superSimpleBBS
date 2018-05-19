@@ -1,0 +1,1 @@
+a:7:{i:0;s:6:"cmt_id";i:1;s:7:"post_id";i:2;s:8:"cmt_user";i:3;s:7:"content";i:4;s:4:"time";s:3:"_pk";s:6:"cmt_id";s:5:"_type";a:5:{s:6:"cmt_id";s:16:"int(10) unsigned";s:7:"post_id";s:16:"int(10) unsigned";s:8:"cmt_user";s:11:"varchar(30)";s:7:"content";s:12:"varchar(255)";s:4:"time";s:7:"int(11)";}}

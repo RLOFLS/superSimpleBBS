@@ -1,0 +1,16 @@
+<div class="header">
+	<div class="header_left"><a href="{:U('Home/Index/index')}">程序员之家</a></div>
+	<if	condition="$Think.session.user_name neq null">
+	
+	<div class="header_right"><a href="{:U('User/Index/index')}">{$Think.session.user_name}</a>&nbsp;&nbsp;&nbsp;<a href="{:U('User/Public/logout')}">退出</a></div>
+	
+	<elseif condition="$Think.session.admin_name neq null"/>
+	
+	<div class="header_right"><a href="{:U('Admin/Index/index')}">{$Think.session.admin_name}</a>&nbsp;&nbsp;&nbsp;<a href="{:U('Admin/Public/logout')}">退出</a></div>
+	
+	<else/>
+	
+	<div class="header_right"><a href="{:U('User/Public/login')}">登录</a>&nbsp;&nbsp;&nbsp;<a href="{:U('User/Public/register')}">注册</a></div>
+	</if>
+	
+</div>

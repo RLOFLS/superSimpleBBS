@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/header.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/footer.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<include file="./Application/Home/View/Public/header.html" />
+<div class="main">
+	<div class="main_center">
+	<div class="main_left">
+		<div class="moudle_one">
+			<dl class="notice">
+				<dt>{$notice.title}</dt>
+				<dd>{$notice.content}</dd>
+			</dl>
+			<div class="i"><b>发表时间：</b><i>{$notice.time|date="Y-m-d H:i:s",###}</i></div>
+		</div>
+		<volist name="moudle" id="vol">
+			<a href="__APP__/Home/Public/index/id/{$vol.moudle_id}"><div class="moudle_two">
+			<dl>
+				<dt>{$vol.title}</dt>
+				<dd class="dd_content">{$vol.description}</dd>
+			</dl>
+			<div class="i"><i>浏览量：{$vol.scan}&nbsp;&nbsp;&nbsp;&nbsp;帖子数：{$vol.post_nums}</i></div>
+			</div></a>
+		</volist>
+	</div>
+	<div class="main_right" style="margin-top: 17px;">
+	<dl>
+		<dt>程序员之家的热帖</dt>
+		<dd>
+			<ol>
+			<volist name="good_post" id="good">
+				<a href="__APP__/Home/Public/showPost/id/{$good.post_id}/author/{$good.author}"><li><span class="label label-warning">热</span>&nbsp;&nbsp;{$good.title|substr=0,33}..</li></a>
+			</volist>
+			</ol>
+		</dd>
+	</dl>
+	<dl>
+		<dt>程序员之家的精帖</dt>
+		<dd>
+			<ol>
+				
+			<volist name="hot_post" id="hot">
+				<a href="__APP__/Home/Public/showPost/id/{$hot.post_id}/author/{$hot.author}"><li><span class="label label-success">精</span>&nbsp;&nbsp;{$hot.title|substr=0,33}..</li></a>
+			</volist>
+			</ol>
+		</dd>
+	</dl>
+	</div>
+	</div>
+</div>
+<include file="./Application/Home/View/Public/footer.html" />
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1">
+<link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/Public/css/common.css" rel="stylesheet" type="text/css">
+<link href="/Public/css/common_back.css" rel="stylesheet" type="text/css">
+<script src="/Public/js/jquery-3.2.1.min.js"></script>
+<script src="/Public/bootstrap/js/bootstrap.min.js"></script>
+<title>程序员之家</title>
+</head>
+
+<body>
+<div class="content">
+	<table>	
+		<tr class="intro">
+			<td width="100px">状态</td><td width="220px" class="title">邮件标题</td><td width="100px">发件人</td><td width="220px"><span class="info">时间&nbsp;</span></td><td width="100px" colspan="2">操作</td>
+		</tr>
+		<volist name="data" id="vol">
+			<tr class="intro">
+			<td  width="150px" >
+			<if condition="$vol.status eq 0">
+				<span class="label label-warning">未读</span>
+			<else/>
+				<span class="label label-success">以读</span>
+			</if>
+			</td><td width="220px" class="title">{$vol.title}</td><td width="220px">{$vol.from_someone}</td><td width="220px"><span class="info"><i>{$vol.time|date="Y-m-d H:i:s",###}&nbsp;</i></span></td><td width="50px"><button class="btn btn-success btn-xs"  data-toggle="modal" data-target="#myModal{$vol.email_id}">查看</button></td><td width="50px"><a href="__CONTROLLER__/del/id/{$vol.email_id}/ed/1"><button class="btn btn-danger btn-xs" onClick="return confirm('确认删除么');">删除</button></a></td>
+			
+			<div class="modal fade" id="myModal{$vol.email_id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{$vol.title}</h4>
+        <span class="info">发件人：{$vol.from_someone}&nbsp;|收件人：{$vol.to_someone}&nbsp;&nbsp;&nbsp;时间：{$vol.time|date="Y-m-d H:i:s",###}</span>
+      </div>
+      <div class="modal-body">
+        {$vol.content}
+      </div>
+      <div class="modal-footer">
+        <a href="__CONTROLLER__/look/id/{$vol.email_id}/status/{$vol.status}/b/1"><button type="button" class="btn btn-default" >关闭</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+			</tr>
+		</volist>
+	
+		
+	</table>
+</div>
+</body>
+</html>

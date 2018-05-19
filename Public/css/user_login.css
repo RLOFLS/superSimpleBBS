@@ -1,0 +1,28 @@
+@charset "utf-8";
+.user_login{
+	width:370px;
+	height:auto;
+	margin: 90px auto;
+	background-color: #99cc66;
+}
+.logo{
+	font-size:47px;
+	margin-top: 27px;
+	margin-bottom: 37px;
+	text-align: center;
+}
+.input-group{
+	width:270px;
+	margin:17px auto;
+}
+.subu{
+	margin:7px auto;
+	text-align: center;
+	margin-bottom: 27px;
+}
+.subu input{
+	margin-right:17px;
+}
+.img{
+	padding:0;
+}

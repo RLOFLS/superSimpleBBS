@@ -1,0 +1,88 @@
+@charset "utf-8";
+.main{
+	height:auto;
+}
+*{
+	margin:0px;
+	padding: 0px;
+}
+body{
+	background-color:#dddddd;
+   
+}
+div,textarea{
+	border-radius: 5px;
+}
+.moudle_one,.moudle_two,li,.moudle,.intro,.back,.article_info,textarea,.comments_right,.comments,.user_post,.nav_one,.main_right,.top,.floor,.content,.input_group,.btn,.header_left,.header_right,img,.user_login,.user_register,.admin_login{
+	box-shadow: 0px 0px 7px #669966;
+	border: solid 1px #99cc99;
+}
+a{
+	color:#666666;
+}
+a:hover{
+	color: #333333;
+	text-decoration: none;
+}
+.comments_right:hover,texterea:hover,.article_info:hover,.user_login:hover,.user_register:hover,
+.admin_login:hover,.intro:hover{
+	border:solid 1px #006600;
+	box-shadow: 0px 0px 6px #669966;
+	background-color: #cccccc;
+}
+.article_info,.comments_right{
+	background-color:#eeeeee;
+}
+.part:hover,.simple_info:hover,.nav_one:hover{
+	border:solid 1px #006600;
+	box-shadow: 0px 0px 3px #669966;
+	background-color: #99cc99;
+}
+.image:hover,.image_small:hover,.image_xs:hover{
+	border:solid 1px #006600;
+	box-shadow: 0px 0px 17px #006600;
+}
+.image {
+	margin: 17px auto;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow:hidden; 
+}
+.image_small{
+	margin: 17px auto;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow:hidden; 
+}
+.image_xs{
+	margin-right: 7px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow:hidden; 
+	float: left;
+}
+dd:hover,.signature:hover,i:hover,.logo:hover{
+	color:#003300;
+	text-shadow: 0px 0px 6px #669966;
+}
+i{
+	font-size: 12px;
+	text-align: right;
+	color: #777777;
+}
+.float_aside{
+	position:fixed;
+	left:1200px; 
+	top:270px;
+}
+.active_live{
+	border:solid 1px #006600;
+	box-shadow: 0px 0px 6px #669966;
+	background: #99cc99;
+}
+.top button{
+	margin-left: 7px;
+}

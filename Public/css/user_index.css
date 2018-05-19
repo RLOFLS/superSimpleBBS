@@ -1,0 +1,29 @@
+@charset "utf-8";
+.header_right a{
+	margin-right:17px;
+	padding-top: 30px;
+}
+.main_center{
+	width: 900px;
+	margin:17px auto;
+	overflow: auto;
+	text-align: center;
+}
+.nav_left{
+	width:170px;
+	float: left;
+}
+.nav_one{
+	font-size: 22px;
+	height:40px;
+	line-height:40px;
+	text-align: center;
+	margin-top: 7px;
+	background-color: #eeeeee;
+}
+.main_right{
+	float: left;
+	width:720px;
+	height: 540px;
+	margin-left: 7px;
+}
